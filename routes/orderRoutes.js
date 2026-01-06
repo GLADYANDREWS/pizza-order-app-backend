@@ -41,7 +41,7 @@
 
 
 import express from "express";
-import Order from "../models/Order.js"; // create Order model
+import Order from "../models/order.js"; // create Order model
 
 const router = express.Router();
 

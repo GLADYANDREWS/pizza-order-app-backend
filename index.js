@@ -5,7 +5,8 @@ import cors from "cors";
 import pizzas from "./Pizza.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import SelectedItem from "./models/SelectedItem.js";
-
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 
 app.use(express.json());
@@ -21,7 +22,7 @@ app.get("/api/pizzas", (req, res) => {
 });
 
 /* ---------- MONGODB ---------- */
-mongoose.connect("mongodb://127.0.0.1:27017/PizzaApp")
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error("MongoDB error:", err));
 
